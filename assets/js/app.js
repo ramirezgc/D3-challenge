@@ -11,7 +11,7 @@ let margin = {
 let chartWidth = svgWidth - margin.left - margin.right;
 let chartHeight = svgHeight - margin.top - margin.bottom;
 
-let svg = d3.select('body')
+let svg = d3.select('#scatter')
     .append("svg")
     .attr("width", svgWidth)
     .attr("height", svgHeight);
@@ -45,13 +45,14 @@ d3.csv("./assets/data/data.csv").then(function(censusData){
     
     // X Axis
     chartGroup.append("g")
-    .attr("transform", `translate(0, ${chartHeight})`)
-    .call(bottomAxis);
+        .attr("transform", `translate(0, ${chartHeight})`)
+        .call(bottomAxis);   
+
     
     // Y Axis
     chartGroup.append("g")
         .classed("axis", true)
-        .call(leftAxis)
+        .call(leftAxis);
 
     
 });
