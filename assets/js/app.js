@@ -29,8 +29,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData){
     });
 
     let xLinearScale = d3.scaleLinear()
-        .domain([d3.min(censusData, d => d.poverty)*0.9,
-        d3.max(censusData, d => d.poverty)*1.10])
+        .domain([d3.min(censusData, d => d.poverty)*0.9, d3.max(censusData, d => d.poverty)*1.10])
         .range([0, chartWidth]);
 
     let yLinearScale = d3.scaleLinear()
@@ -81,15 +80,13 @@ d3.csv("./assets/data/data.csv").then(function(censusData){
         .attr("x", 0 - (chartHeight / 2))
         .attr("dy", "1em")
         .classed("aText", true)
-        .attr("fill", "white")
         .text("Lacks Healthcare (%)");
 
     chartGroup.append("text")
-        .attr("y", chartHeight + margin.bottom/2 - 10)
+        .attr("y", chartHeight + margin.bottom / 2)
         .attr("x", chartWidth / 2)
         .attr("dy", "1em")
         .classed("aText", true)
-        .attr("fill", "white")
         .text("In Poverty (%)");
 
 });
